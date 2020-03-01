@@ -12,8 +12,10 @@ from .models import *
 from homess import settings
 
 # Create your views here.
+def log(request):
+    return redirect('/login/')
+
 def login(request):
-    # 分两种用户，一个是会员，一个管理员（系统）
     print('--->', request.method)
     if request.method == 'POST':
         print(request.POST)
@@ -44,7 +46,6 @@ def login(request):
             if not error:
                 request.session['login_user'] = login_info
                 return redirect('/')
-
     return render(request, 'login.html', locals())
 
 def logout(request):
@@ -58,7 +59,7 @@ def block_settings(request):
 
 def index(request):
     return render(request, 'dashboard.html')
-
+    # return redirect('/logout/')
 
 def message(request):
     objs = TAdvertising.objects.all()
@@ -97,7 +98,7 @@ def role(request):
 def list_sys_user(request):
     action = request.GET.get('action', '')
     if action == 'del':
-        TSysUser.objects.get(pk=request.GET.get('id_')).delete()
+        TSysUser.objects.get(pk=request.GET.get('id')).delete()
 
     # 查询系统时，除去超级管理员的用户
     users = TSysUser.objects.filter(~Q(pk=request.session['login_user']['_id'])).all()

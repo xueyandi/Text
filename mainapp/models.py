@@ -113,6 +113,36 @@ class Comment(models.Model):
         db_table = 'comment'
 
 
+class DjangoContentType(models.Model):
+    app_label = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'django_content_type'
+        unique_together = (('app_label', 'model'),)
+
+
+class DjangoMigrations(models.Model):
+    app = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    applied = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_migrations'
+
+
+class DjangoSession(models.Model):
+    session_key = models.CharField(primary_key=True, max_length=40)
+    session_data = models.TextField()
+    expire_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_session'
+
+
 class FirstImages(models.Model):
     img_id = models.CharField(primary_key=True, max_length=20)
     link = models.CharField(max_length=100, blank=True, null=True)
@@ -190,21 +220,7 @@ class TAdvertising(models.Model):
     title = models.CharField(max_length=100)
     text = models.CharField(max_length=100, blank=True, null=True)
     link = models.CharField(max_length=100)
-
-    states = (
-        (0, '审核中'),
-        (1, '已通过'),
-        (2, '未通过')
-    )
-    state = models.IntegerField(choices=states, default=0)
-
-    @property
-    def state_label(self):
-        return self.states[self.state][-1]
-
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        super(TAdvertising, self).save()
+    state = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -267,17 +283,6 @@ class TSlidesshow(models.Model):
         db_table = 't_slidesshow'
 
 
-class TSysMenu(models.Model):
-    name = models.CharField(max_length=20, blank=True, null=True)
-    parent_id = models.IntegerField(blank=True, null=True)
-    ord = models.IntegerField(blank=True, null=True)
-    url = models.CharField(max_length=50, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 't_sys_menu'
-
-
 class TSysRole(models.Model):
     name = models.CharField(unique=True, max_length=20)
     code = models.CharField(unique=True, max_length=10, blank=True, null=True)
@@ -287,18 +292,9 @@ class TSysRole(models.Model):
         db_table = 't_sys_role'
 
 
-class TSysRoleMenu(models.Model):
-    role_id = models.IntegerField(blank=True, null=True)
-    menu_id = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 't_sys_role_menu'
-
-
 class TSysUser(models.Model):
     username = models.CharField(unique=True, max_length=20)
-    auth_string = models.CharField(max_length=82)
+    auth_string = models.CharField(max_length=32)
     nick_name = models.CharField(max_length=20, blank=True, null=True)
     role_id = models.IntegerField(blank=True, null=True)
 

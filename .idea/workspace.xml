@@ -22,18 +22,18 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="fms@47.105.137.19" type="feb32156:DbDataSourceImpl" />
+        <item name="fmss@47.105.137.19" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="fms@47.105.137.19" type="feb32156:DbDataSourceImpl" />
+        <item name="fmss@47.105.137.19" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="fms@47.105.137.19" type="feb32156:DbDataSourceImpl" />
+        <item name="fmss@47.105.137.19" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="fms: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="fmss: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -49,7 +49,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1Y4Eh9VbknvHUsUN7GLnpNXaHWS" />
@@ -65,15 +65,15 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\1111\Desktop\fms2\media" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\1111\Desktop\fms2" />
       <recent name="C:\Users\1111\Desktop\fms\media" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\1111\Desktop\fms2\media" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -168,12 +168,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@644f75b0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2eeae2a9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@644f75b0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@f450b4f" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2eeae2a9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5f8298e8" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -207,7 +207,8 @@
       <workItem from="1582715139471" duration="2611000" />
       <workItem from="1582718637750" duration="4595000" />
       <workItem from="1582893488889" duration="5890000" />
-      <workItem from="1582974933567" duration="7019000" />
+      <workItem from="1582974933567" duration="9390000" />
+      <workItem from="1583061877319" duration="9665000" />
     </task>
     <servers />
   </component>

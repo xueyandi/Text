@@ -75,17 +75,18 @@
                  {% for obj in objs %}
                      <li>
                         <dl>
+                            <dt><b>音乐：</b> {{ obj.m_id }}</dt>
                             <dt><b>音乐名称：</b> <a style="cursor: pointer;" onclick="window.open('{{ obj.link_url }}')">{{ obj.m_name }}</a></dt>
                             <dd class="box">
                                 {{ obj.lyrics|safe }}
                             </dd>
-                            <dt><b>音乐成分：</b> {{ obj.composition }} </dt>
+                            <dt><b>音乐：</b> {{ obj.composition }} </dt>
                             <dd class="box">
                                 {{ obj.lyrics|safe }}
                             </dd>
                             <dd>
-                                <button class="stdbtn btn_blue" onclick="window.open('/message_audit/?action=yes&a_id={{ obj.a_id }}',target='_self')">通过</button>
-                                <button class="stdbtn btn_red" onclick="no_({{ obj.a_id }}, '{{ obj.title }}')">不通过</button>
+                                <button class="stdbtn btn_blue" onclick="window.open('/message_audit/?action=yes&m_id={{ obj.m_id }}',target='_self')">通过</button>
+                                <button class="stdbtn btn_red" onclick="no_({{ obj.m_id }}">不通过</button>
                             </dd>
                         </dl>
                      </li>
@@ -100,10 +101,10 @@
 
 {% block js %}
     <script>
-        function no_(id_, name_) {
-            jPrompt( name_ + "未通过审核",'', '审核理由', function (msg) {
+        function no_(m_id) {
+            jPrompt( m_id + "未通过审核",'', '审核理由', function (msg) {
                if(msg!=null){
-                   window.open('/message_audit/?action=no&a_id='+a -id+'&note='+msg, target='_self')
+                   window.open('/message_audit/?action=no&m_id='+m_id+'&note='+msg, target='_self')
                }
             })
         }

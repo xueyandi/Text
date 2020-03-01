@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="fms@47.105.137.19" uuid="1225e354-d45e-4574-a058-ca3ff38d7bf5">
+    <data-source source="LOCAL" name="fmss@47.105.137.19" uuid="fda3e66a-775b-4904-8deb-8858f578bdd0">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://47.105.137.19:3306/fms</jdbc-url>
+      <jdbc-url>jdbc:mysql://47.105.137.19:3306/fmss</jdbc-url>
     </data-source>
   </component>
 </project>

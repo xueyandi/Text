@@ -4,6 +4,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('', views.index),
     path('login/', views.login),
     path('logout/', views.logout),
     path('settings/', views.block_settings),
@@ -18,5 +19,5 @@ urlpatterns = [
     path('edit_role/', views.EditRoleView.as_view()),
     path('list_sysuser/', views.list_sys_user),
     path('edit_sysuser/', views.EditSysUserView.as_view()),
-    path('', views.index)
+
 ]

@@ -1,6 +1,5 @@
 import os
 import pymysql
-
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -65,7 +64,7 @@ DATABASES = {
         'PORT': 3306,
         'USER': 'root',
         'PASSWORD': 'root',
-        'NAME': 'fms',
+        'NAME': 'fmss',
         'CHARSET': 'utf8',
     }
 }
@@ -84,11 +83,11 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
+STATIC_URL = '/s/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
 # upload files
-MEDIA_URL = '/media/'
+MEDIA_URL = '/m/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
