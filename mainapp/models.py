@@ -34,12 +34,28 @@ class CArticle(models.Model):
     u = models.ForeignKey('User', models.DO_NOTHING)
     name = models.CharField(max_length=70, blank=True, null=True)
     number = models.IntegerField(blank=True, null=True)
-    status = models.CharField(max_length=5)
-    isfree = models.TextField()  # This field type is a guess.
+    status = models.CharField(max_length=5, blank=True, null=True)
+    isfree = models.TextField(blank=True, null=True)  # This field type is a guess.
     fabulous = models.IntegerField(blank=True, null=True)
     profit = models.FloatField(blank=True, null=True)
     details = models.TextField(blank=True, null=True)
-    date = models.CharField(max_length=50)
+    date = models.DateField(max_length=50, auto_created=True, auto_now=True)
+
+    states = (
+        (0, '审核中'),
+        (1, '已通过'),
+        (2, '未通过')
+    )
+    state = models.IntegerField(choices=states, default=0)
+    note = models.TextField(default='')
+
+    @property
+    def state_label(self):
+        return self.states[self.state][-1]
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        super(CArticle, self).save()
 
     class Meta:
         managed = False
@@ -220,7 +236,6 @@ class TAdvertising(models.Model):
     title = models.CharField(max_length=100)
     text = models.CharField(max_length=100, blank=True, null=True)
     link = models.CharField(max_length=100)
-    state = models.IntegerField(blank=True, null=True)
 
     states = (
         (0, '审核中'),

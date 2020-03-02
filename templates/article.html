@@ -72,23 +72,29 @@
             <ul>
             <br>
 {#            获取用户上传音乐对象内容#}
-                 {% for obj in objs %}
-                     <li>
-                        <dl>
-                            <dt><b>文章id：</b> {{ obj.a_id }} </dt>
-                            <dt><b>文章名称：</b>{{ obj.name }}</dt>
-                            <dt><b>文章数量：</b>{{ obj.number }}</dt>
-                            <dt><b>文章现状：</b>{{ obj.status }}</dt>
-                            <dt><b>文章现状：</b>{{ obj.status }}</dt>
-                            <dt><b>文章日期：</b>{{ obj.date }}</dt>
 
-                            <dd>
-                                <button class="stdbtn btn_blue" onclick="window.open('/message_audit/?action=yes&a_id={{ obj.a_id }}',target='_self')">通过</button>
-                                <button class="stdbtn btn_red" onclick="no_({{ obj.a_id }}, '{{ obj.title }}')">不通过</button>
-                            </dd>
-                        </dl>
-                     </li>
+
+                 {% for obj in objs %}
+                     {% if obj.state == 0 or id_ == '' %}
+                         <li>
+                            <dl>
+                                <dt><b>文章id：</b> {{ obj.a_id }} </dt>
+                                <dt><b>文章名称：</b>{{ obj.name }}</dt>
+                                <dt><b>文章数量：</b>{{ obj.number }}</dt>
+                                <dt><b>文章现状：</b>{{ obj.status }}</dt>
+                                <dt><b>文章：</b>{{ obj.details }}</dt>
+                                <dt><b>文章现状：</b>{{ obj.status }}</dt>
+                                <dt><b>文章日期：</b>{{ obj.date }}</dt>
+                                <dd>
+                                    <button class="stdbtn btn_blue" onclick="window.open('/article_md/?action=yes&a_id={{ obj.a_id }}',target='_self')">通过</button>
+                                    <button class="stdbtn btn_red" onclick="no_({{ obj.a_id }})">不通过</button>
+                                </dd>
+                            </dl>
+                         </li>
+                     {% endif %}
                  {% endfor %}
+
+
 
             </ul>
 
@@ -102,10 +108,11 @@
         function no_(a_id) {
             jPrompt( a_id + "未通过审核",'', '审核理由', function (msg) {
                if(msg!=null){
-                   window.open('/message_audit/?action=no&a_id='+a_id+'&note='+msg, target='_self')
+                   window.open('/article_md/?action=no&a_id='+a_id+'&note='+msg, target='_self')
                }
             })
         }
-
     </script>
 {% endblock %}
+
+

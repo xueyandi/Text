@@ -11,7 +11,10 @@ urlpatterns = [
     path('message/', views.message),
 
     path('music/', views.music),
+    path('music_md/', views.modify_article),
+
     path('article/', views.article),
+    path('article_md/', views.modify_article),
 
     path('edit_message/', views.EditMessageView.as_view()),
     path('message_audit/', views.AuditMessage.as_view()),

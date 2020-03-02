@@ -3,22 +3,16 @@
             <h1 class="logo">YOUTH<span>后台管理系统</span></h1>
             <span class="slogan">管理系统</span>
 
-            <div class="search">
-            	<form action="" method="post">
-                	<input type="text" name="keyword" id="keyword" value="请输入" />
-                    <button class="submitbutton"></button>
-                </form>
-            </div><!--search-->
 
             <br clear="all" />
 
-        </div><!--left-->
+        </div>
 
         <div class="right">
             <div class="userinfo">
             	<img id="head_small" src="{% if request.session.login_user.head %}/m/{{ request.session.login_user.head }}{% else %}/s/images/thumbs/avatar.png{% endif %}" alt="" />
                 <span>{{ request.session.login_user.name }}</span>
-            </div><!--userinfo-->
+            </div>
 
             <div class="userinfodrop">
             	<div class="avatar">
@@ -39,36 +33,18 @@
                     <h6></h6>
                     <span class="email">{{ request.session.login_user.mail }}</span>
                     <ul>
-                    	<li><a href="editprofile.html">编辑资料</a></li>
                         <li><a href="help.html">帮助</a></li>
                         <li><a href="/logout/">退出</a></li>
                     </ul>
-                </div><!--userdata-->
-            </div><!--userinfodrop-->
-        </div><!--right-->
-    </div><!--topheader-->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
  <div class="header">
     	<ul class="headermenu">
         	<li class="current"><a href="/"><span class="icon icon-flatscreen"></span>首页</a></li>
-{#            <li><a href="messages.html"><span class="icon icon-message"></span>查看消息</a></li>#}
-
-
         </ul>
 
-{#       <div class="headerwidget">#}
-{#        	<div class="earnings">#}
-{#            	<div class="one_half">#}
-{#                	<h4>已用空间</h4>#}
-{#                    <h2>11K</h2>#}
-{#                </div><!--one_half-->#}
-{#                <div class="one_half last alignright">#}
-{#                	<h4>剩余空间</h4>#}
-{#                    <h2>199M</h2>#}
-{#                </div><!--one_half last-->#}
-{#            </div><!--earnings-->#}
-
-        </div><!--headerwidget-->
-
-    </div><!--header-->
+    </div>

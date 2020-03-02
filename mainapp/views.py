@@ -72,18 +72,47 @@ def music(request):
     objs = CMusic.objects.all()
     action = request.GET.get('action', '')
     if action == 'del':
-        TAdvertising.objects.get(pk=request.GET.get('m_id')).delete()
+        CMusic.objects.get(pk=request.GET.get('a_id')).delete()
 
     return render(request, 'music.html', locals())
 
-def article(request):
-    objs = CArticle.objects.all()
+# def modify_music(request):
+#     action = request.GET.get('action', '')
+#     obj = CMusic.objects.get(pk=request.GET.get('m_id'))
+#     if action == 'no':
+#         obj.state = 2  # request params {note}
+#         obj.note = request.GET.get('note', '')
+#         obj.save()
+#
+#     if action == "yes":
+#         obj.state = 1
+#         obj.save()
+#
+#     return redirect('/music/')
+
+# def music(request):
+#     objs = CMusic.objects.filter(state=0).all()
+#     return render(request, 'music.html', locals())
+
+
+
+def modify_article(request):
     action = request.GET.get('action', '')
-    if action == 'del':
-        TAdvertising.objects.get(pk=request.GET.get('a_id')).delete()
+    obj = CArticle.objects.get(pk=request.GET.get('a_id'))
+    if action == 'no':
+        obj.state = 2  # request params {note}
+        obj.note = request.GET.get('note', '')
+        obj.save()
 
+    if action == "yes":
+        obj.state = 1
+        obj.save()
+
+    return redirect('/article/')
+
+def article(request):
+    objs = CArticle.objects.filter(state=0).all()
     return render(request, 'article.html', locals())
-
 
 
 def role(request):
