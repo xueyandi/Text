@@ -222,6 +222,21 @@ class TAdvertising(models.Model):
     link = models.CharField(max_length=100)
     state = models.IntegerField(blank=True, null=True)
 
+    states = (
+        (0, '审核中'),
+        (1, '已通过'),
+        (2, '未通过')
+    )
+    state = models.IntegerField(choices=states, default=0)
+
+    @property
+    def state_label(self):
+        return self.states[self.state][-1]
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        super(TAdvertising, self).save()
+
     class Meta:
         managed = False
         db_table = 't_advertising'

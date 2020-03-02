@@ -59,7 +59,6 @@ def block_settings(request):
 
 def index(request):
     return render(request, 'dashboard.html')
-    # return redirect('/logout/')
 
 def message(request):
     objs = TAdvertising.objects.all()
