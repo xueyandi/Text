@@ -12,8 +12,8 @@ from .models import *
 from homess import settings
 
 # Create your views here.
-def log(request):
-    return redirect('/login/')
+def help(request):
+    return render(request, 'help.html', locals())
 
 def login(request):
     print('--->', request.method)
@@ -127,8 +127,6 @@ def list_sys_user(request):
     action = request.GET.get('action', '')
     if action == 'del':
         TSysUser.objects.get(pk=request.GET.get('id')).delete()
-
-    # 查询系统时，除去超级管理员的用户
     users = TSysUser.objects.filter(~Q(pk=request.session['login_user']['_id'])).all()
     return render(request, 'sys_user/list.html', locals())
 
